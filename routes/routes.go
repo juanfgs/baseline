@@ -2,7 +2,7 @@ package routes
 
 import(
 	"golang.org/x/net/context"
-	"github.com/juanfgs/encweb/handlers"
+	"github.com/juanfgs/baseline/handlers"
 	"net/http"
 )
 
@@ -14,6 +14,7 @@ type Route struct {
 
 func Get() []Route{
 	return []Route{
-		{ "/:name", handlers.FormHandler{}.Index },
+		{ "/", handlers.FormHandler{}.Index },
+
 	}
 }
