@@ -25,7 +25,7 @@ func init(){
 		templateNames = append(templateNames, "./views/" + x.Name())
 	}
 
-	tpl, err = template.New("index.tpl").ParseFiles(templateNames...)
+	tpl, err = template.New("layout").ParseFiles(templateNames...)
 	if err != nil{
 		panic(err)
 	}

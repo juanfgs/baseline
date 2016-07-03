@@ -18,8 +18,8 @@ func main(){
 	}
 
 	/* Handle CSS and JS paths */
-	mux.Handle(pat.New("./css/*"), http.FileServer(http.Dir("./static/css/")))
-	mux.Handle(pat.New("./js/*"),  http.FileServer(http.Dir("./static/js/")))
+	mux.Handle(pat.New("/css/*"), http.FileServer(http.Dir("./static/css/")))
+	mux.Handle(pat.New("/js/*"),  http.FileServer(http.Dir("./static/js/")))
 
 	http.ListenAndServe("localhost:6060", mux)
 
