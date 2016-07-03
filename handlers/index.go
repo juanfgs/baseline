@@ -12,5 +12,6 @@ type FormHandler struct{
 }
 
 func (t FormHandler) Index(ctx context.Context, w http.ResponseWriter, r *http.Request) {
+	t.AddTemplate("body", "index.tpl")
 	t.Render(w, "foo")
 }

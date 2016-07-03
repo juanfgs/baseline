@@ -2,40 +2,33 @@ package handlers
 
 import (
 	"html/template"
-	"io/ioutil"
 	"net/http"
 
 )
 
-var tpl *template.Template
+
+
 
 type BaseHandler struct {
-
-}
-
-
-func init(){
-	templates,err := ioutil.ReadDir("./views/")
-	var templateNames []string
-	if err != nil{
-		panic(err)
-	}
-
-	for _,x := range templates {
-		templateNames = append(templateNames, "./views/" + x.Name())
-	}
-
-	tpl, err = template.New("layout").ParseFiles(templateNames...)
-	if err != nil{
-		panic(err)
-	}
-
+	templates []string
+	tpl *template.Template  /* Compiled template */
 }
 
 
 
-func (s BaseHandler) Render(w http.ResponseWriter, data interface{}) {
-	err := tpl.Execute(w, data)
+func (self *BaseHandler)  AddTemplate(templateName string){
+	self.templates = append(templates, templateName)
+}
+
+func (self BaseHandler) Render(w http.ResponseWriter, data interface{}) {
+	var err error
+
+	self.tpl, err = template.New("layout.tpl").ParseFiles(self.templates...)
+	if err != nil{
+		panic(err)
+	}
+
+	err = self.tpl.Execute(w, data)
 	if err != nil {
 		panic(err)
 	}
