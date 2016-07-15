@@ -4,14 +4,14 @@ import (
 	// "fmt"
         // "goji.io/pat"
 	"net/http"
-	"golang.org/x/net/context"
+
 )
 
 type FormHandler struct{
 	BaseHandler
 }
 
-func (t FormHandler) Index(ctx context.Context, w http.ResponseWriter, r *http.Request) {
-	t.AddTemplate("body", "index.tpl")
-	t.Render(w, "foo")
+func (t FormHandler) Index(w http.ResponseWriter, r *http.Request) {	
+	t.AddTemplate( "layout.tpl")
+	t.AddTemplate( "index.tpl")
 }

@@ -1,14 +1,14 @@
 package routes
 
 import(
-	"golang.org/x/net/context"
-	"github.com/juanfgs/baseline/handlers"
+
+	"github.com/juanfgs/angular-test/handlers"
 	"net/http"
 )
 
 type Route struct {
 	Destination string
-	Handler func(ctx context.Context, w http.ResponseWriter, r *http.Request) ()
+	Handler func( w http.ResponseWriter, r *http.Request) ()
 }
 
 
