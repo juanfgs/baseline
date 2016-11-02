@@ -2,7 +2,7 @@ package routes
 
 import(
 
-	"github.com/juanfgs/angular-test/handlers"
+	"github.com/juanfgs/baseline/handlers"
 	"net/http"
 )
 
