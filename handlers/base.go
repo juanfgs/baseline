@@ -3,6 +3,7 @@ package handlers
 import (
 	"html/template"
 	"net/http"
+	"github.com/juanfgs/react-js-test/config"
 )
 
 
@@ -16,7 +17,7 @@ type BaseHandler struct {
 
 
 func (self *BaseHandler)  AddTemplate(templateName string){
-	self.templates = append(self.templates, "views/" + templateName)
+	self.templates = append(self.templates, config.Values.AppPath + "views/" + templateName)
 }
 
 func (self BaseHandler) Render(w http.ResponseWriter, data interface{}) {
