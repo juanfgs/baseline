@@ -3,7 +3,6 @@ package handlers
 import (
 	"html/template"
 	"net/http"
-	"log"
 )
 
 
@@ -22,7 +21,6 @@ func (self *BaseHandler)  AddTemplate(templateName string){
 
 func (self BaseHandler) Render(w http.ResponseWriter, data interface{}) {
 	var err error
-	log.Println(self.templates)
 
 	self.tpl, err = template.New("layout").ParseFiles(self.templates...)
 	if err != nil{

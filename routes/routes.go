@@ -2,7 +2,7 @@ package routes
 
 import(
 
-	"github.com/juanfgs/angular-test/handlers"
+	"github.com/juanfgs/react-js-test/handlers"
 	"net/http"
 )
 

@@ -14,7 +14,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="css/main.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <style>
     body {
@@ -32,9 +33,12 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     
-    <script type="text/javascript" src="/js/riot.min.js"></script>
+    <script type="text/javascript" src="/js/react.js"></script>
 
-    <script type="text/javascript" src="/js/riot+compiler.min.js"></script>
+    <script type="text/javascript" src="/js/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+    
 </head>
 
 <body>
