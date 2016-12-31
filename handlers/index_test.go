@@ -18,14 +18,9 @@ func init(){
 
 
 func TestIndex(t *testing.T){
-	ts := httptest.NewServer(http.HandlerFunc(FormHandler{}.Index))
-	defer ts.Close()
-
-	res, err:= http.Get(ts.URL)
-	if err != nil {
-		log.Fatal("Error Reaching server")
-	}
-	page, err := ioutil.ReadAll(res.Body)
+	res := visit( FormHandler{}.Index )
+	
+	page, _ := ioutil.ReadAll(res.Body)
 	
 	res.Body.Close()
 
@@ -34,4 +29,15 @@ func TestIndex(t *testing.T){
 	if i == -1 {
 		t.Errorf("Not found")
 	} 
+}
+
+func visit( handler func(w http.ResponseWriter, r *http.Request) ) *http.Response {
+	ts := httptest.NewServer(http.HandlerFunc(handler))
+	defer ts.Close()
+
+	res, err:= http.Get(ts.URL)
+	if err != nil {
+		log.Fatal("Error Reaching server")
+	}
+	return res
 }

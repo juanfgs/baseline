@@ -6,10 +6,23 @@ import(
 	"log"
 )
 
+type DbConf struct {
+	Driver string
+	Host string
+	Username string
+	Password string
+	Name string
+}
+
+
 type Config struct {
 	AppPath string
+	Database DbConf
 	Env string
+	
 }
+
+
 
 var Values Config = Config{}
 
@@ -23,7 +36,7 @@ func init(){
 	case "development":
 		configFile, openErr = os.Open("../config/app.development.json")
 	default:
-		configFile, openErr = os.Open("config/app.development.json")
+		configFile, openErr = os.Open("config/app.json")
 	}
 	
 	if openErr != nil {

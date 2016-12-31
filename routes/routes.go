@@ -15,6 +15,6 @@ type Route struct {
 func Get() []Route{
 	return []Route{
 		{ "/", handlers.FormHandler{}.Index },
-
+		{ "/create", handlers.FormHandler{}.Post },
 	}
 }
