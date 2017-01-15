@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
+    <title>Juan F. Giménez Silva - CV</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -32,10 +32,14 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-    
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="/js/react.js"></script>
 
+    <script src="https://use.fontawesome.com/f88c962d3f.js"></script>
+
     <script type="text/javascript" src="/js/react-dom.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
     
@@ -54,23 +58,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">Inicio</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>

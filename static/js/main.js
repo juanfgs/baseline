@@ -1,87 +1,157 @@
-class Square extends React.Component {
+class Section extends React.Component {
+    render(){
+        var icon = "fa fa-" + this.props.data.icon + " fa-5x";
+        return (
+        <div className="iconbox">
+          <div className="iconbox-icon">
+                <i className={icon}></i>
+          </div>
+          <div className="featureinfo">
+                <h4 className="text-center">{this.props.data.namee}</h4>
+                <p>
+                {this.props.data.tagline}
+            </p>
+                <a className="btn btn-default btn-sm" href="#"  onClick={ () => this.props.setCurrentSection(this.props.data)} role="button">View Page »</a>
+          </div>
+        </div>
+
+        );
+    }
+}
+
+class FullSection extends React.Component {
+    renderItem(item,idx){
+        return (<Item data={item} order={idx} itemType={this.props.data.itemType} />);
+    }
+
+    render(){
+        console.log(this.props.data);
+        var className = "items";
+        var idName = "items";
+        var element = "ul";
+        if(this.props.data.itemType == 'accordion'){
+            className ="panel-group";
+            idName ="accordion";
+            element="div";
+        }
+        const CustomTag = element;
+        return(
+                <div className="panel col-md-12" id="mainSection">
+                   <h2>{this.props.data.name}</h2>
+                <p>{this.props.data.content}</p>
+                <CustomTag className={className} id={idName} role="tablist">
+                {this.props.data.items.map(function(entry,idx){
+                    return  <div className={ this.props.data.itemType == 'accordion' ? "panel panel-default" : ""} key={idx}> {this.renderItem(entry,idx)}</div>;
+                }, this)}
+            </CustomTag>
+              
+                </div>
+        );
+    }
+
+}
+
+class Item extends React.Component {
+    render(){
+        switch(this.props.itemType){
+        case 'accordion':
+        return(
+            <div>
+                <div className="panel-heading" role="tab" id={"heading" + this.props.order}>
+                      <h4 className="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href={"#collapse" + this.props.order} aria-expanded="false" aria-controls="collapseOne">
+                          {this.props.data.name}
+                      </a>
+                </h4>
+                </div>
+                <div id={"collapse" +this.props.order} className="panel-collapse collapse out" role="tabpanel" aria-labelledby={"heading" +this.props.order}>
+                    <div className="panel-body">
+                            {this.props.data.description}
+                    </div>
+                </div>
+                </div>
+              );
+
+            break;
+        default:
+            return(
+                    <li><h4>{this.props.data.name}</h4> {this.props.data.description} </li>
+            );
+        }
+    }
+
+}
+
+class CV extends React.Component {
     constructor(){
         super();
         this.state = {
-            value: null,
         };
+        this.setCurrentSection = this.setCurrentSection.bind(this);
     }
+
     render() {
-        return (
-                <button className="square" onClick={() => this.setState({value: 'X'})}>
-                {this.state.value}
-            </button>
-        );
-    }
-}
-
-class Board extends React.Component {
-    renderSquare(i) {
-        return <Square />;
-    }
-    render() {
-        const status = 'Next player: X';
-        return (
-                <div>
-                <div className="status">{status}</div>
-                <div className="board-row">
-                {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-            </div>
-                <div className="board-row">
-                {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-            </div>
-                <div className="board-row">
-                {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-            </div>
-                </div>
-        );
-    }
-}
-
-class Game extends React.Component {
-    render() {
-        return (
-                <div className="game">
-                <div className="game-board">
-                <Board />
-                </div>
-                <div className="game-info">
-                <div>{/* status */}</div>
-                <ol>{/* TODO */}</ol>
-                </div>
-                </div>
-        );
-    }
-}
-
-// ========================================
-
-ReactDOM.render(
-        <Game />,
-    document.getElementById('container')
-);
-
-function calculateWinner(squares) {
-    const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
-    for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
+        if (typeof this.state.sections != 'undefined'){
+            var currentSection = "";
+            if(typeof this.state.currentSection != 'undefined'){
+                currentSection = <FullSection data={this.state.currentSection} />;
+            }
+            return (
+                    <div className="CV">
+                    {currentSection}
+                    <div className="col-md-12">
+                    {this.state.sections.map(function(entry,idx){
+                        return <div className={"col-md-3"} key={idx}> {this.renderSection(entry)}</div>;
+                    }, this)}
+                    </div>
+                    </div>
+            );
+        } else {
+            return (<div className="CV" >Loading</div>);
         }
     }
-    return null;
+    renderSection(section){
+        return <Section data={section} setCurrentSection={this.setCurrentSection} />;
+    }
+    setCurrentSection(section){
+        var new_state = this.state;
+        new_state["currentSection"] = section;
+        this.setState(new_state);
+        console.log(this.state)
+    }
+    componentDidMount(){
+        getJson("/js/sections.json", this, "sections");
+    };
+
+}
+
+
+ReactDOM.render(
+  <CV />,
+    document.getElementById('cv-content')
+);
+
+function getJson(url, obj, prop){
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+        request.onload = function(  ) {
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                var newstate = obj.state;
+                try {
+                    newstate[prop] = JSON.parse(request.response);
+
+                } catch(e) {
+                    console.log(e);
+                }
+                obj.setState( newstate );
+            } else {
+
+                // We reached our target server, but it returned an error
+            }
+        }
+    request.onerror = function() {
+        return request.error;
+    };
+    request.send();
 }

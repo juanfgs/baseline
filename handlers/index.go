@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"net/http"
-	_ "github.com/juanfgs/react-js-test/models"
+	_ "github.com/juanfgs/cv/models"
 )
 
 type FormHandler struct{

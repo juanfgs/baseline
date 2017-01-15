@@ -9,6 +9,7 @@ import(
 type DbConf struct {
 	Driver string
 	Host string
+	Port string
 	Username string
 	Password string
 	Name string

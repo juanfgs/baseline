@@ -3,7 +3,7 @@ package handlers
 import (
 	"html/template"
 	"net/http"
-	"github.com/juanfgs/react-js-test/config"
+	"github.com/juanfgs/cv/config"
 )
 
 

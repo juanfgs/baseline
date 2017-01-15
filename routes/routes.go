@@ -2,7 +2,7 @@ package routes
 
 import(
 
-	"github.com/juanfgs/react-js-test/handlers"
+	"github.com/juanfgs/cv/handlers"
 	"net/http"
 )
 
@@ -15,6 +15,7 @@ type Route struct {
 func Get() []Route{
 	return []Route{
 		{ "/", handlers.FormHandler{}.Index },
+		{ "/tictactoe", handlers.FormHandler{}.Index },
 		{ "/create", handlers.FormHandler{}.Post },
 	}
 }

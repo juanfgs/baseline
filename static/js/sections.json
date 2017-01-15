@@ -1,0 +1,93 @@
+[
+  {
+    "name" : "Information",
+    "icon" : "address-card",
+    "tagline" : "Personal and contact information ",
+    "content" : " ",
+    "itemType" : "list",
+    "items" : [
+      {
+        "name" : "Last Name",
+        "description" : "Giménez Silva"
+      },
+      {
+        "name" : "First Name",
+        "description" : "Juan Francisco"
+      },
+      {
+        "name" : "Age",
+        "description" : "29"
+      },
+      {
+        "name" : "Nationality",
+        "description" : "Argentinian"
+      },
+      {
+        "name" : "Date of Birth",
+        "description" : "February 7, 1987"
+      },
+      {
+        "name" : "Marital Status",
+        "description" : "Single"
+      }
+
+    ]
+  },
+  {
+    "name" : "Education",
+    "icon" : "graduation-cap",
+    "tagline" : "Formal education and courses",
+    "content" : "",
+    "itemType" : "accordion",
+    "items" : [
+      {
+        "name" : "Elementary School",
+        "description" : "School N°4 \"Domingo Faustino Sarmiento\""
+      },
+      {
+        "name" : "Secondary/High School",
+        "description" : "School N°93 \"Del Centenario\" \n "
+      },
+      {
+        "name" : "Tertiary/Universitary #1",
+        "description" : "Uader FcYT: \"Information Systems\" (Incomplete)"
+      },
+      {
+        "name" : "Tertiary/Universitary #2",
+        "description" : "UTN: \"Programming technician\" (Incomplete)"
+      }
+
+    ]
+
+
+  },
+  {
+    "name" : "Experience",
+    "icon" : "briefcase",
+    "tagline" : "Work experience and portfolio",
+    "content" : "",
+    "itemType" : "accordion",
+    "items" : [
+      {
+        "name" : "",
+        "description" : "School N°4 \"Domingo Faustino Sarmiento\""
+      }
+    ]
+
+  },
+  {
+    "name" : "Projects",
+    "icon" : "code",
+    "tagline" : "Personal and commercial projects",
+    "content" : "",
+    "itemType" : "portfolio",
+    "items" : [
+      {
+        "name" : "Elementary School",
+        "description" : "School N°4 \"Domingo Faustino Sarmiento\""
+      }
+    ]
+
+  }
+
+]
