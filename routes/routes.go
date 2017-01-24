@@ -2,6 +2,7 @@ package routes
 
 import(
 
+	"github.com/juanfgs/cv/handlers/admin"
 	"github.com/juanfgs/cv/handlers"
 	"net/http"
 )
@@ -15,7 +16,7 @@ type Route struct {
 func Get() []Route{
 	return []Route{
 		{ "/", handlers.FormHandler{}.Index },
-		{ "/tictactoe", handlers.FormHandler{}.Index },
-		{ "/create", handlers.FormHandler{}.Post },
+		{ "/admin", admin.AdminHandler{}.Index },
+		{ "/admin/sections", admin.SectionsHandler{}.Index },
 	}
 }
