@@ -7,11 +7,11 @@ class Section extends React.Component {
                 <i className={icon}></i>
           </div>
           <div className="featureinfo">
-                <h4 className="text-center">{this.props.data.namee}</h4>
+                <h4 className="text-center">{this.props.data.name}</h4>
                 <p>
                 {this.props.data.tagline}
             </p>
-                <a className="btn btn-default btn-sm" href="#"  onClick={ () => this.props.setCurrentSection(this.props.data)} role="button">View Page »</a>
+                <a className="btn btn-default btn-sm" href="#"  onClick={ () => this.props.setCurrentSection(this.props.data)} role="button">View »</a>
           </div>
         </div>
 
@@ -44,7 +44,6 @@ class FullSection extends React.Component {
                     return  <div className={ this.props.data.itemType == 'accordion' ? "panel panel-default" : ""} key={idx}> {this.renderItem(entry,idx)}</div>;
                 }, this)}
             </CustomTag>
-              
                 </div>
         );
     }
@@ -97,14 +96,16 @@ class CV extends React.Component {
                 currentSection = <FullSection data={this.state.currentSection} />;
             }
             return (
-                    <div className="CV">
-                    {currentSection}
-                    <div className="col-md-12">
+                  <div className="CV">
+                    <div className="col-md-3">
                     {this.state.sections.map(function(entry,idx){
-                        return <div className={"col-md-3"} key={idx}> {this.renderSection(entry)}</div>;
+                        return <div key={idx}> {this.renderSection(entry)}</div>;
                     }, this)}
                     </div>
+                    <div className="col-md-8">
+                                        {currentSection}
                     </div>
+                  </div>
             );
         } else {
             return (<div className="CV" >Loading</div>);

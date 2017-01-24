@@ -1,7 +1,9 @@
 *{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Assistant', sans-serif;
 }
-
+h1,h2,h3,h4 {
+    font-family: 'Jaldi', sans-serif;
+}
 .well {
     margin-top:-20px;
     background-color:#007FBD;
@@ -33,7 +35,9 @@ color:#808080;
 background-color: #F1F1F1;
 }
 
-
+ul li{
+    list-style-type:none;
+}
 
 .bg_blur
 {
@@ -107,7 +111,6 @@ background-color: #F1F1F1;
     background-color: #3D5DE0;
     border-color: #adadad;
     width: 33.3%;
-   
 }
 
 
@@ -115,9 +118,6 @@ background-color: #F1F1F1;
     .header{
         text-align : center;
     }
-    
-    
-    
     .nav{
         margin-top : 30px;
     }
@@ -128,16 +128,18 @@ background-color: #F1F1F1;
   margin-bottom: 20px;
 }
 .iconbox {
+    position:relative;
   background: #ffffff;
   background-color: #ffffff;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
-  padding: 20px 25px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 3px 0 rgba(0, 0, 0, 0.12); */
+  padding: 5px 10px;
   text-align: right;
   display: block;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 .iconbox-icon {
@@ -146,18 +148,21 @@ background-color: #F1F1F1;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
+  margin: 0 ;
+  width: 64px;
+  height: 64px;
+  position:absolute;
+  left:0;
+  top:40px;
   margin-top: -70px;
 }
 .iconbox-icon i {
   color: #fff;
-  font-size: 42px;
+  font-size: 24px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 29px;
+  padding-top: 20px;
   text-align: center;
   vertical-align: middle;
 }
@@ -167,7 +172,7 @@ background-color: #F1F1F1;
   text-transform: uppercase;
 }
 .featureinfo > p {
-  color: #000000;
+  color: #808080;
   font-size: 16px;
   padding-top: 4px;
   text-align: left;
@@ -195,9 +200,9 @@ background-color: #F1F1F1;
   -o-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
-  visibility: hidden; 
+  visibility: hidden;
 }
 .mainSection.show {
   opacity: 1;
-  visibility: visible; 
+  visibility: visible;
 }

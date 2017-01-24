@@ -69,7 +69,35 @@
     "itemType" : "accordion",
     "items" : [
       {
-        "name" : "",
+        "name" : "(2006 - 2007) U.A.D.E.R. (Universidad Autónoma de Entre Ríos)",
+        "description" : "I participated in a  migration project to GNU/Linux system on workstations, computer labs and servers at the university. I was in charge of installing and maintaining Linux systems as well as training technical and administrative personnel, network configuration, writing of documentation and user manuals (currently accessible in TLDP http://es.tldp.org/ ), installation and configuration of LAMP servers"
+      },
+      {
+        "name" : "(2007 – 2008) SILIX Soluciones Libres (http://www.silix.com.ar/)",
+        "description" : "As a founding partner of this company I've worked on diverse jobs related with IT and programming, from network installation, software configuration, backporting of software packages and website development. I worked mainly with CakePHP and PEAR for web development."},
+      {
+        "name" : "(2008 – 2015) EosWeb",
+        "description" : "As a partner in this company I'm in charge of diverse projects of software development, mainly in PHP,Javascript and MySQL. Through these years I've been incorporating new development techniques, and I have developed several websites for international companies. I also have worked with technologies such as Laravel, Magento and different database engines like MongoDB, PostgreSQL."
+      },
+      {
+        "name" : "(2015 - 2016) Grey Suit Retail - Studio98 LLC",
+        "description" : "As of 2015 I joined Grey Suit Retail, at this company I was in charge of maintaining and upgrading a PAAS system creating "
+      }
+
+
+
+    ]
+
+  },
+    {
+    "name" : "Skills",
+    "icon" : "wrench",
+    "tagline" : "Learned Skills",
+    "content" : "",
+    "itemType" : "list",
+    "items" : [
+      {
+        "name" : "Elementary School",
         "description" : "School N°4 \"Domingo Faustino Sarmiento\""
       }
     ]
