@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"github.com/juanfgs/react-js-test/routes"
+	"github.com/juanfgs/cv/routes"
 	"net/http"
 
 
