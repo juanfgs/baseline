@@ -24,7 +24,7 @@ func NewSection() Section{
 	return Section{ Model: Model{ tableName:"sections", indexName: "id" } }
 }
 
-func (this *Section) Create() *Section{
+func (this *Section) Create() int64{
 	stmt,err := DB.Prepare("INSERT INTO `" +this.tableName+ "` (`name`,`icon`,`tagline`,`content`) VALUES (?,?,?,?)" )
 
 	if err != nil{
@@ -37,7 +37,7 @@ func (this *Section) Create() *Section{
 		panic(err)
 	}
 
-	return this
+	return this.Id
 }
 
 
@@ -56,6 +56,9 @@ func (this *Section) FindById(id int64) {
 	this.Model.FindById(id,&this.Id,&this.Name,&this.Icon,&this.Tagline,&this.Content )
 }
 
+func (this Section) Delete(){
+	this.Model.Delete(this.Id)
+}
 
 func (this *Section) FindByField(field string, value string){
 	this.Model.FindByField(field, value,&this.Id,&this.Name,&this.Icon,&this.Tagline,&this.Content )
