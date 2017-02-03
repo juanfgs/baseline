@@ -44,6 +44,13 @@ func (this Model) FindByField( field string, value string, fields ...interface{}
 
 }
 
+func (this *Model) Delete(id int64) {
+	_, err:= DB.Query("DELETE FROM `"+ this.tableName +"` WHERE `"+this.indexName+"` = ?", id )
+	if err != nil {
+		log.Println(err)
+	}
+}
+
 func (this Model) All() *sql.Rows{
 	rows, err:= DB.Query("SELECT * FROM `"+ this.tableName +"`" )
 	if err != nil {
@@ -52,6 +59,16 @@ func (this Model) All() *sql.Rows{
 
 	return rows
 }
+
+func (this Model) AllWhere(where string) *sql.Rows{
+	rows, err:= DB.Query("SELECT * FROM `"+ this.tableName +"` WHERE " + where )
+	if err != nil {
+		log.Println(err)
+	}
+
+	return rows
+}
+
 
 
 func (this *Model) SetIndex(idx string){
