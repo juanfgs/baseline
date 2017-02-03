@@ -16,7 +16,8 @@
     <link href="https://fonts.googleapis.com/css?family=Assistant|Jaldi:700" rel="stylesheet"> 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="/css/admin.css" rel="stylesheet">
+    <script src="/js/jquery.js" type="text/javascript"></script>
     <!-- Custom CSS -->
     <link href="/css/simple-sidebar.css" rel="stylesheet">
 
@@ -44,11 +45,24 @@
                 <li>
                     <a href="/admin/">Dashboard</a>
                 </li>
-                <li>
-                    <a href="/admin/sections">Sections</a>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                        Sections <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <a href="/admin/sections">List</a>
+                        <a href="/admin/sections/create">Create</a>
+                    </ul>
                 </li>
                 <li>
-                    <a href="/admin/items">Items</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                        Items <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <a href="/admin/items">List</a>
+                        <a href="/admin/items/create">Create</a>
+                    </ul>
+
                 </li>
                 <li>
                     <a href="/auth/logout">Logout</a>
