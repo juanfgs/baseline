@@ -34,11 +34,14 @@ class FullSection extends React.Component {
             idName ="accordion";
             element="div";
         }
+        var converter = new showdown.Converter();
+        var htmlContent = converter.makeHtml(this.props.data.content);
+        
         const CustomTag = element;
         return(
                 <div className="panel col-md-12" id="mainSection">
                    <h2>{this.props.data.name}</h2>
-                <p>{this.props.data.content}</p>
+                <p dangerouslySetInnerHTML={{__html:htmlContent }}></p>
                 <CustomTag className={className} id={idName} role="tablist">
                 {this.props.data.items.map(function(entry,idx){
                     return  <div className={ this.props.data.itemType == 'accordion' ? "panel panel-default" : ""} key={idx}> {this.renderItem(entry,idx)}</div>;
@@ -121,7 +124,7 @@ class CV extends React.Component {
         console.log(this.state)
     }
     componentDidMount(){
-        getJson("/js/sections.json", this, "sections");
+        getJson("/data.json", this, "sections");
     };
 
 }
