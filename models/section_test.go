@@ -6,7 +6,7 @@ import(
 	"github.com/icrowley/fake"
 )
 
-func setup(){
+func setupSectionTests(){
 	MigrationDown()
 	MigrationUp()
 	stmt, _ := DB.Prepare("INSERT INTO `sections` (name,icon,tagline,content) VALUES (?,?,?,?)")
@@ -16,7 +16,7 @@ func setup(){
 
 
 func TestFindById(t *testing.T){
-	setup()
+	setupSectionTests()
 	section := NewSection()
 
 	section.FindById(1)
