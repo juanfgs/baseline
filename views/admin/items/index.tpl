@@ -16,9 +16,9 @@
         <td>{{ $item.Value}}</td>
         <td></td>
     </tr>
-</table>    
     {{end }}
 
+</table>    
   </div>
 </div>
 

@@ -20,7 +20,8 @@ type Config struct {
 	AppPath string
 	Database DbConf
 	Env string
-	
+	Secret string
+	UserRegistration bool
 }
 
 
@@ -35,12 +36,13 @@ func init(){
 	case "testing":
 		configFile, openErr = os.Open("../config/app.testing.json")
 	case "development":
-		configFile, openErr = os.Open("../config/app.development.json")
+		configFile, openErr = os.Open("config/app.development.json")
 	default:
 		configFile, openErr = os.Open("config/app.json")
 	}
 	
 	if openErr != nil {
+		log.Println(openErr)
 		log.Fatal("Opening app.json failed")
 	}
 	

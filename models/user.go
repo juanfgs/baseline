@@ -10,6 +10,7 @@ type User struct {
 	Id int64
 	Name string
 	password string
+	SessionCookie []byte
 	Active bool
 }
 
@@ -41,17 +42,17 @@ func (this *User) Create() int64{
 
 
 func (this User) Save() User{
-	stmt,err := DB.Prepare("UPDATE  `" +this.tableName+ "` SET `name` = ?, `password` = ?, `active` = ? WHERE `id` = ?" )
+	stmt,err := DB.Prepare("UPDATE  `" +this.tableName+ "` SET `name` = ?, `session_cookie` = ?, `password` = ?, `active` = ? WHERE `id` = ?" )
 	if err != nil{
 		panic(err)
 	}
-
-	stmt.Exec(this.Name,this.password,this.Active,this.Id)
+	log.Println(this.Name)
+	stmt.Exec(this.Name,this.SessionCookie,this.password,this.Active,this.Id)
 	return this
 }
 
 func (this *User) FindById(id int64) {
-	this.Model.FindById(id,&this.Id,&this.Name,&this.password,&this.Active )
+	this.Model.FindById(id,&this.Id,&this.Name,&this.SessionCookie,&this.password,&this.Active )
 }
 
 func (this User) Delete(){
@@ -59,7 +60,7 @@ func (this User) Delete(){
 }
 
 func (this *User) FindByField(field string, value string){
-	this.Model.FindByField(field, value,&this.Id,&this.Name,&this.password,&this.Active )
+	this.Model.FindByField(field, value,&this.Id,&this.Name,&this.password,&this.SessionCookie,&this.Active )
 }
 
 func (this *User) SetPassword( password string) {
@@ -76,8 +77,6 @@ func (this *User) SetPassword( password string) {
 
 func (this *User) ValidatePassword(password string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(this.password), []byte(password))
-	
-	
 	if err != nil {
 		return false
 	}

@@ -13,8 +13,8 @@
     <title>Juan F. Giménez Silva - CV</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Assistant|Jaldi:700" rel="stylesheet"> 
     <!-- Custom CSS -->
     <style>
