@@ -1,3 +1,13 @@
 {
-    "AppPath": ""
+  "AppPath": "",
+  "Database": {
+    "Driver" : "",
+    "Host" : "",
+    "Port" : "",
+    "Username" : "",
+    "Password" : "",
+    "Name" : "_dev"
+  },
+  "Secret": "",
+  "UserRegistration": true
 }
