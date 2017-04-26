@@ -79,8 +79,12 @@ class Item extends React.Component {
 
             break;
         default:
+
+            var converter = new showdown.Converter();
+            var htmlContent = "<h4>" + this.props.data.name + "</h4>" + converter.makeHtml(this.props.data.value);
+            
             return(
-                    <li dangerouslySetInnerHTML={{__html:htmlContent}}><h4>{this.props.data.name}</h4>  </li>
+                    <li dangerouslySetInnerHTML={{__html:htmlContent}}>  </li>
             );
         }
     }
