@@ -71,8 +71,7 @@ class Item extends React.Component {
                 </h4>
                 </div>
                 <div id={"collapse" +this.props.order} className="panel-collapse collapse out" role="tabpanel" aria-labelledby={"heading" +this.props.order}>
-                    <div className="panel-body">
-                            {htmlContent}
+                <div className="panel-body" dangerouslySetInnerHTML={{__html:htmlContent}}>
                     </div>
                 </div>
                 </div>
@@ -81,7 +80,7 @@ class Item extends React.Component {
             break;
         default:
             return(
-                    <li><h4>{this.props.data.name}</h4> {htmlContent} </li>
+                    <li dangerouslySetInnerHTML={{__html:htmlContent}}><h4>{this.props.data.name}</h4>  </li>
             );
         }
     }
