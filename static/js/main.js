@@ -57,6 +57,10 @@ class Item extends React.Component {
     render(){
         switch(this.props.itemType){
         case 'accordion':
+            var converter = new showdown.Converter();
+            var htmlContent = converter.makeHtml(this.props.data.value);
+
+            
         return(
             <div>
                 <div className="panel-heading" role="tab" id={"heading" + this.props.order}>
@@ -68,7 +72,7 @@ class Item extends React.Component {
                 </div>
                 <div id={"collapse" +this.props.order} className="panel-collapse collapse out" role="tabpanel" aria-labelledby={"heading" +this.props.order}>
                     <div className="panel-body">
-                            {this.props.data.value}
+                            {htmlContent}
                     </div>
                 </div>
                 </div>
@@ -77,7 +81,7 @@ class Item extends React.Component {
             break;
         default:
             return(
-                    <li><h4>{this.props.data.name}</h4> {this.props.data.value} </li>
+                    <li><h4>{this.props.data.name}</h4> {htmlContent} </li>
             );
         }
     }
