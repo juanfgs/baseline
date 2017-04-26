@@ -84,7 +84,7 @@ class Item extends React.Component {
             var htmlContent = "<h4>" + this.props.data.name + "</h4>" + converter.makeHtml(this.props.data.value);
             
             return(
-                    <li dangerouslySetInnerHTML={{__html:htmlContent}}>  </li>
+                    <li dangerouslySetInnerHTML={{__html:htmlContent}}></li>
             );
         }
     }
